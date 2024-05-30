@@ -1,0 +1,138 @@
+cauldron:
+  settings:
+    # Dumps all materials with their corresponding id's
+    dumpMaterials: false
+    # Forces Chunk Loading on 'Provide' requests (speedup for mods that don't check if a chunk is loaded)
+    loadChunkOnRequest: true
+    # Forces Chunk Loading during Forge Server Tick events
+    loadChunkOnForgeTick: false
+    # Removes a living entity that exceeds the max bounding box size.
+    checkEntityBoundingBoxes: true
+    # Removes any entity that exceeds max speed.
+    checkEntityMaxSpeeds: false
+    # Max size of an entity's bounding box before removing it (either being too large or bugged and 'moving' too fast)
+    largeBoundingBoxLogSize: 1000
+    # Square of the max speed of an entity before removing it
+    entityMaxSpeed: 100
+    # Grace period of no-ticks before unload
+    chunkGCGracePeriod: 0
+    # Vanilla water source behavior - is infinite
+    infiniteWaterSource: true
+    # Lava behaves like vanilla water when source block is removed
+    flowingLavaDecay: false
+    # TNT ability to push other entities (including other TNTs)
+    allowTntPushing: true
+    # How many players will visible in the tab list (negative to use server's max players)
+    maxPlayersVisible: -1
+    # Instead of DIM##, use the world name prescribed by the mod! Be careful with this one, could create incompatibilities with existing setups!
+    useWorldRealNames: false
+  optimization:
+    # How many milliseconds the server must ignore before trying repeater updates
+    redstoneRepeaterUpdateSpeed: -1
+    # How many milliseconds the server must ignore before trying redstone torch updates
+    redstoneTorchUpdateSpeed: -1
+    # Whether to enable affinity locking. Very technical usage, recommended for dedicated hosts only. Ask on Discord or GitHub for info on how to set this up properly.
+    affinityLocking: false
+  logging:
+    # Log worlds that appear to be leaking (buggy)
+    worldLeakDebug: false
+    # Log when chunks are loaded (dev)
+    chunkLoad: false
+    # Log when chunks are unloaded (dev)
+    chunkUnload: false
+    # Log when living entities are spawned (dev)
+    entitySpawn: false
+    # Log when living entities are despawned (dev)
+    entityDespawn: false
+    # Add stack traces to dev logging
+    logWithStackTraces: false
+    # Dump chunks in the event of a deadlock (helps to debug the deadlock)
+    dumpChunksOnDeadlock: false
+    # Dump the heap in the event of a deadlock (helps to debug the deadlock)
+    dumpHeapOnDeadlock: false
+    # Dump the the server thread on deadlock warning (helps to debug the deadlock)
+    dumpThreadsOnWarn: false
+    # Whether to log entity collision/count checks
+    entityCollisionChecks: false
+    # Whether to log entity removals due to speed
+    entitySpeedRemoval: false
+    # Number of colliding entities in one spot before logging a warning. Set to 0 to disable
+    largeCollisionWarnSize: 200
+    # Set true to enable debuggin user's login process
+    userLogin: false
+  debug:
+    # Set true to enable Java's thread contention monitoring for thread dumps
+    enableThreadContentionMonitoring: false
+  protection:
+    # Contains Block IDs that you want to NEVER exist in the world i.e. world anchors (just in case) (e.g. instantRemoval: 1,93,56,24)
+    instantRemoval: []
+    # Contains commands you want to block from being used in-game, you must also include command aliases (e.g. blockedCommands: /op,/deop,/stop,/restart .
+    blockedCommands: []
+    # Don't allow commands of the format plugin:cmd, the plugin: will be removed (recommended to keep at true)
+    noFallbackAlias: true
+thermos:
+  # Set the OP command to only be allowed to run in console
+  opConsoleOnly: false
+  logging:
+    # Log material injection event
+    materialInjection: false
+    # Print client's mod list during attempt to join
+    clientModList: true
+  # Allow nether portals in dimensions besides overworld
+  allowNetherPortal: false
+crucible:
+  # Enable Oversized Chunk to be saved
+  # What is an oversized chunk?
+  #  - Oversized chunks are chunks over 1 mb (exceeding the 255 sections limit) which by default is just
+  #    discarted by vanilla mc rolling back the chunk to the previous valid disk version.
+  # Why is it enabled by default?
+  #  - Oversized chunks are abused by dupers to possibly damage your server and economy, having it enabled by default
+  #    will prevent the headache of having to deal with duped items later plus it's warned in the console when
+  #    a oversized chunk is saved helping you to find it later, it also might save some player base with a big applied energistics system.
+  enableOversizedChunk: true
+  # Size of cached chunk
+  chunkCacheSize: 256
+  logging:
+    # Log Material injections.
+    logMaterialInjection: false
+    # Attempts to reduce console spam by removing "useless" logs.
+    # What is removed?
+    #  - "The mcmod.info file in modfile cannot be parsed as valid JSON. It will be ignored" spam
+    #  - FileNotFoundException spam when some core user list (like whitelist.json) does not exist.
+    reduceSpam: false
+  # List of world names where the usage of modded itens and blocks will be disabled for 
+  protectedWorld:
+  - spawn
+  # List of numeric item IDs for modded items that can be used in protected worlds
+  protectedWorldWhitelist: []
+  # Invert the protection whitelist and use it as a blacklist.
+  protectedWorldWhitelistInvert: false
+  tickHandler:
+    # Sets the server max tps, it will break plugins and other things that requires a normal tickrate!
+    serverTickRate: 20
+    # Sets the server max tick time, it will break plugins and other things that requires a normal tickrate!
+    serverTickTime: 1000000000
+  # Removes some restrictions and safety checks, we will not offer support for this setting and it may cause problems.
+  # Use it at your own risk!
+  # Currently disabled checks by this:
+  #  * Server Icon max size check
+  unsafe: false
+  # Prevents grass tick from loading Chunks!
+  noGrassChunkLoading: true
+timings:
+  # Let timings be turned on since the server statup!
+  enabledSinceServerStartup: false
+  # Make timings Verbose! (http://tinyurl.com/wtf-is-verbose)
+  verbose: false
+  ultraverbose:
+    # Make timings Utra-Verbose! (Needs 'timings_verbose=true') This can cause LAG, and depending on how many tiles loaded on your server, will not even work! Don't use always!
+    enabled: false
+    # Only tiles that cost more than this limiar of time in nano-seconds will be sent to timings paste. One tick has 50000 nano-seconds, so 2500 means 5% o the tick!
+    limiar: 2500
+  serverNamePrivacy: false
+  hiddenConfigEntries:
+  - database
+  - settings.bungeecord-addresses
+  historyInterval: 300
+  historyLength: 3600
+  serverName: Crucible Server

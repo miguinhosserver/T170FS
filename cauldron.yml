@@ -1,0 +1,27 @@
+# This is the main configuration file for Cauldron.
+# 
+# If you need help with the configuration or have any questions related to Cauldron,
+# join us at the IRC or drop by our forums and leave a post.
+# 
+# IRC: #cauldron @ irc.esper.net ( http://webchat.esper.net/?channel=cauldron )
+# Forums: http://cauldron.minecraftforge.net/
+# Crucible note: aw, those links are dead, join our discord instead https://discord.gg/jwstj4d 
+# 
+# Setting: plugin-settings.allow-reload Default: false   # Allow plugins to be reloaded. WARNING - breaks with some mods. We *will not* support this!
+# Setting: plugin-settings.default.remap-plugin-file Default: false   # Remap the plugin file (dev)
+
+plugin-settings:
+  allow-reload: false
+  default:
+    remap-plugin-file: false
+config-version: 1
+world-environment-settings:
+  normal:
+    keep-world-loaded: true
+  nether:
+    keep-world-loaded: true
+  the_end:
+    keep-world-loaded: false
+world-settings:
+  default:
+    entity-despawn-immediate: false
